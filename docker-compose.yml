@@ -6,7 +6,7 @@ services:
     container_name: image-processor
     build: ./
     volumes:
-      - /mnt/sda/jrbb/FOTOS_TEMPORAL/:/data/FOTOS_TEMP/:ro
+      - /mnt/sda/jrbb/FOTOS_TEMPORAL/:/data/FOTOS_TEMP/
       - /mnt/sda/jrbb/FOTOS/:/data/FOTOS/
     environment:
       - SOURCE_DIR=/data/FOTOS_TEMP/

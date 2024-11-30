@@ -27,7 +27,11 @@ def extract_date_with_exiftool(file_path):
             metadata_list = et.get_metadata(file_path)  # Devuelve una lista
             if metadata_list and isinstance(metadata_list, list):
                 metadata = metadata_list[0]  # Selecciona el primer elemento
-                date_str = metadata.get('EXIF:DateTimeOriginal') or metadata.get('EXIF:CreateDate')
+                date_str = metadata.get('EXIF:DateTimeOriginal') or \
+                    metadata.get('EXIF:CreateDate') or \
+                    metadata.get('XMP:CreateDate') or \
+                    metadata.get('DateTimeOriginal') or \
+                    metadata.get('Create Date')
                 if date_str:
                     return datetime.strptime(date_str, '%Y:%m:%d %H:%M:%S')
     except Exception as e:
@@ -74,7 +78,7 @@ def main():
         for file in files:
             file_path = os.path.join(root, file)
             # Add more extensions if needed.
-            if file.lower().endswith(('.jpg', '.jpeg', '.raw', '.dng', '.nef', '.crw', '.cr2', '.arw', '.mrw')):
+            if file.lower().endswith(('.jpg', '.jpeg', '.raw', '.dng', '.nef', '.crw', '.cr2', '.arw', '.mrw', '.heic', '.mp4')):
                 process_file(file_path, dest_dir)
 
     # Resumen final
