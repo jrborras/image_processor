@@ -2,9 +2,9 @@ version: "3.9"
 
 services:
 
-  image_processor:
-    container_name: image_processor
-    build: ./image_processor/
+  image-processor:
+    container_name: image-processor
+    build: ./
     volumes:
       - /mnt/sda/jrbb/FOTOS_TEMPORAL/:/data/FOTOS_TEMP/:ro
       - /mnt/sda/jrbb/FOTOS/:/data/FOTOS/
