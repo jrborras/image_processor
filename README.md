@@ -52,7 +52,7 @@ CMD ["python", "process_images.py"]
 
 ### docker-compose.yml
 
-The `docker-compose.yml` file defines the `mqtt-client` service, which runs the `app.py` in a container. The `.env` file is used to configure the MQTT connection.
+The `docker-compose.yml` file defines the `image-processor` service, which runs the `process_images.py` in a container. 
 
 ```yaml
 version: "3.9"
@@ -91,7 +91,7 @@ To use the script with Docker, follow these steps:
 ## **Customization**
 
 You can modify the supported file extensions or the folder paths in the script:
-- Supported extensions: `.jpg`, `.jpeg`, `.arw`, `.dng`, `.mrw`.
+- Supported extensions: `.jpg`, `.jpeg`, `.raw`, `.dng`, `.nef`, `.crw`, `.cr2`, `.arw`, `.mrw`, `.heic`, `.mp4`.
 - Folder paths can be adjusted using `SOURCE_DIR` and `DEST_DIR` environment variables.
 
 

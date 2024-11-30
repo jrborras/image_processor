@@ -42,6 +42,7 @@ def extract_date_with_exiftool(file_path):
 def copy_file_if_not_exists(src, dest):
     """
         Copies (using copy2) or moves (using move) the file if it isn't exist
+        Changes the comments, depending on your preference for copying or moving
     """
     global copied_count, skipped_count
     if not os.path.exists(dest):
@@ -69,8 +70,8 @@ def process_file(file_path, dest_base):
 
 def main():
     global copied_count, skipped_count
-    source_dir = os.environ.get("SOURCE_DIR", "/data/FOTOS_TEMP/")
-    dest_dir = os.environ.get("DEST_DIR", "/data/FOTOS/")
+    source_dir = os.environ.get("SOURCE_DIR", "/data/PHOTOS_TEMP/")
+    dest_dir = os.environ.get("DEST_DIR", "/data/PHOTOS/")
 
     source_dir = os.path.expanduser(source_dir)
     dest_dir = os.path.expanduser(dest_dir)
@@ -82,7 +83,7 @@ def main():
             if file.lower().endswith(('.jpg', '.jpeg', '.raw', '.dng', '.nef', '.crw', '.cr2', '.arw', '.mrw', '.heic', '.mp4')):
                 process_file(file_path, dest_dir)
 
-    # Resumen final
+    # Final Summary
     print("\n=== Execution results ===")
     print(f"Files copied/moved: {copied_count}")
     print(f"Skipped files (existing files): {skipped_count}")
