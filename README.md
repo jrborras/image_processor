@@ -59,16 +59,15 @@ version: "3.9"
 
 services:
 
-  image_processor:
-    container_name: image_processor
-    build: ./image_processor/
+  image-processor:
+    container_name: image-processor
+    build: ./
     volumes:
-      - ./image_processor/app:/app
-      - ~/FOTOS_TEMP/:/data/FOTOS_TEMP/:ro
-      - ~/FOTOS/:/data/FOTOS/
+      - ${ORIGIN_PHOTOS_TEMP}:${DEST_PHOTOS_TEMP}
+      - ${ORIGIN_PHOTOS}:${DEST_PHOTOS}
     environment:
-      - SOURCE_DIR=/data/FOTOS_TEMP/
-      - DEST_DIR=/data/FOTOS/
+      - SOURCE_DIR=${DEST_PHOTOS_TEMP}
+      - DEST_DIR=${DEST_PHOTOS}
     command: ["python", "process_images.py"]
 ```
 ## **Usage**
