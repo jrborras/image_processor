@@ -96,11 +96,10 @@ You can modify the supported file extensions or the folder paths in the script:
 
 ## **License**
 
-This project is licensed under the MIT License. See the `LICENSE` file for details.
+This project is licensed under the MIT License. See the [`LICENSE`](LICENSE) file for details.
 
 ---
 
 ## **Acknowledgements**
 
 - [ExifTool](https://exiftool.org/) by Phil Harvey for robust metadata extraction.
-```
