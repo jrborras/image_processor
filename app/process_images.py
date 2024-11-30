@@ -31,7 +31,8 @@ def extract_date_with_exiftool(file_path):
                     metadata.get('EXIF:CreateDate') or \
                     metadata.get('XMP:CreateDate') or \
                     metadata.get('DateTimeOriginal') or \
-                    metadata.get('Create Date')
+                    metadata.get('Create Date') or \
+                    metadata.get('QuickTime:CreateDate')
                 if date_str:
                     return datetime.strptime(date_str, '%Y:%m:%d %H:%M:%S')
     except Exception as e:
